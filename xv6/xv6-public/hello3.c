@@ -5,6 +5,7 @@
 
 int main(void) {
 	
-	trace("test_2.txt");
+	trace("test_234234.txt");
+	trace("abc");
 	exit();
 }

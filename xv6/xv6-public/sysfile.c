@@ -284,7 +284,7 @@ create(char *path, short type, short major, short minor)
 
 static int counter;
 static int trace_enabled=0;
-static char trace_path[256];
+static char trace_path[257];
 
 int
 sys_getcount(void)
@@ -299,12 +299,15 @@ sys_trace(void)
 
 	// add checks
 	if(argstr(0, &pathname) < 0) return -1;
-        if(strlen(pathname)<=0) return -1;
+        int len = strlen(pathname);
+	if(len<=0) return -1;
 
-	cprintf("tracing '%s'\n", pathname);
 	counter=0;
 	trace_enabled=1;
-	strncpy(trace_path, pathname, 11);
+	strncpy(trace_path, pathname, len);
+	trace_path[len] = '\0';
+	cprintf("tracing: '%s'\n", trace_path);
+	
 	return 0;  
 }
 
@@ -320,7 +323,8 @@ sys_open(void)
     return -1;
 
   // trace
-  if (trace_enabled && strncmp(path, trace_path, 256)==0) {
+  int len = (strlen(path)<=strlen(trace_path)) ? strlen(path) : strlen(trace_path);
+  if (trace_enabled && strncmp(path, trace_path, len)==0) {
 	counter++;
   }
   

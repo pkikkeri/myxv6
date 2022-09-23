@@ -55,7 +55,7 @@ int main(void) {
   6d:	e8 89 04 00 00       	call   4fb <trace>
   72:	83 c4 0c             	add    $0xc,%esp
   75:	50                   	push   %eax
-  76:	68 54 09 00 00       	push   $0x954
+  76:	68 6c 09 00 00       	push   $0x96c
   7b:	6a 01                	push   $0x1
   7d:	e8 3e 05 00 00       	call   5c0 <printf>
 
@@ -97,17 +97,17 @@ int main(void) {
   e7:	68 f6 08 00 00       	push   $0x8f6
   ec:	6a 01                	push   $0x1
   ee:	e8 cd 04 00 00       	call   5c0 <printf>
-	printf(1, "open text 1\n");
+	printf(1, "open text 11\n");
   f3:	58                   	pop    %eax
   f4:	5a                   	pop    %edx
-  f5:	68 01 09 00 00       	push   $0x901
+  f5:	68 39 09 00 00       	push   $0x939
   fa:	6a 01                	push   $0x1
   fc:	e8 bf 04 00 00       	call   5c0 <printf>
-        open("test_1.txt",  O_RDONLY | O_CREATE);
+        open("test_11.txt",  O_RDONLY | O_CREATE);
  101:	59                   	pop    %ecx
  102:	58                   	pop    %eax
  103:	68 00 02 00 00       	push   $0x200
- 108:	68 0e 09 00 00       	push   $0x90e
+ 108:	68 47 09 00 00       	push   $0x947
  10d:	e8 81 03 00 00       	call   493 <open>
         printf(1, "count: %d\n", getcount());
  112:	e8 dc 03 00 00       	call   4f3 <getcount>
@@ -120,14 +120,14 @@ int main(void) {
 	printf(1, "open text 2\n");
  127:	58                   	pop    %eax
  128:	5a                   	pop    %edx
- 129:	68 39 09 00 00       	push   $0x939
+ 129:	68 53 09 00 00       	push   $0x953
  12e:	6a 01                	push   $0x1
  130:	e8 8b 04 00 00       	call   5c0 <printf>
         open("test_2.txt",  O_RDONLY | O_CREATE);
  135:	59                   	pop    %ecx
  136:	58                   	pop    %eax
  137:	68 00 02 00 00       	push   $0x200
- 13c:	68 46 09 00 00       	push   $0x946
+ 13c:	68 60 09 00 00       	push   $0x960
  141:	e8 4d 03 00 00       	call   493 <open>
         printf(1, "count: %d\n", getcount());
  146:	e8 a8 03 00 00       	call   4f3 <getcount>
@@ -138,43 +138,43 @@ int main(void) {
  156:	e8 65 04 00 00       	call   5c0 <printf>
 
 	trace("test_2.txt");
- 15b:	c7 04 24 46 09 00 00 	movl   $0x946,(%esp)
+ 15b:	c7 04 24 60 09 00 00 	movl   $0x960,(%esp)
  162:	e8 94 03 00 00       	call   4fb <trace>
 	printf(1, "open text 2\n");
  167:	58                   	pop    %eax
  168:	5a                   	pop    %edx
- 169:	68 39 09 00 00       	push   $0x939
+ 169:	68 53 09 00 00       	push   $0x953
  16e:	6a 01                	push   $0x1
  170:	e8 4b 04 00 00       	call   5c0 <printf>
         open("test_2.txt",  O_RDONLY | O_CREATE);
  175:	59                   	pop    %ecx
  176:	58                   	pop    %eax
  177:	68 00 02 00 00       	push   $0x200
- 17c:	68 46 09 00 00       	push   $0x946
+ 17c:	68 60 09 00 00       	push   $0x960
  181:	e8 0d 03 00 00       	call   493 <open>
 	printf(1, "open text 2\n");
  186:	58                   	pop    %eax
  187:	5a                   	pop    %edx
- 188:	68 39 09 00 00       	push   $0x939
+ 188:	68 53 09 00 00       	push   $0x953
  18d:	6a 01                	push   $0x1
  18f:	e8 2c 04 00 00       	call   5c0 <printf>
         open("test_2.txt",  O_RDONLY | O_CREATE);
  194:	59                   	pop    %ecx
  195:	58                   	pop    %eax
  196:	68 00 02 00 00       	push   $0x200
- 19b:	68 46 09 00 00       	push   $0x946
+ 19b:	68 60 09 00 00       	push   $0x960
  1a0:	e8 ee 02 00 00       	call   493 <open>
 	printf(1, "open text 2\n");
  1a5:	58                   	pop    %eax
  1a6:	5a                   	pop    %edx
- 1a7:	68 39 09 00 00       	push   $0x939
+ 1a7:	68 53 09 00 00       	push   $0x953
  1ac:	6a 01                	push   $0x1
  1ae:	e8 0d 04 00 00       	call   5c0 <printf>
         open("test_2.txt",  O_RDONLY | O_CREATE);
  1b3:	59                   	pop    %ecx
  1b4:	58                   	pop    %eax
  1b5:	68 00 02 00 00       	push   $0x200
- 1ba:	68 46 09 00 00       	push   $0x946
+ 1ba:	68 60 09 00 00       	push   $0x960
  1bf:	e8 cf 02 00 00       	call   493 <open>
 	printf(1, "open text 1\n");
  1c4:	58                   	pop    %eax
@@ -790,7 +790,7 @@ printint(int fd, int xx, int base, int sgn)
  542:	31 d2                	xor    %edx,%edx
  544:	89 cf                	mov    %ecx,%edi
  546:	f7 75 c4             	divl   -0x3c(%ebp)
- 549:	0f b6 92 d4 09 00 00 	movzbl 0x9d4(%edx),%edx
+ 549:	0f b6 92 ec 09 00 00 	movzbl 0x9ec(%edx),%edx
  550:	89 45 c0             	mov    %eax,-0x40(%ebp)
  553:	89 d8                	mov    %ebx,%eax
  555:	8d 5b 01             	lea    0x1(%ebx),%ebx
@@ -923,7 +923,7 @@ printf(int fd, const char *fmt, ...)
  631:	83 e8 63             	sub    $0x63,%eax
  634:	83 f8 15             	cmp    $0x15,%eax
  637:	77 17                	ja     650 <printf+0x90>
- 639:	ff 24 85 7c 09 00 00 	jmp    *0x97c(,%eax,4)
+ 639:	ff 24 85 94 09 00 00 	jmp    *0x994(,%eax,4)
         putc(fd, c);
       }
       state = 0;
@@ -1051,7 +1051,7 @@ printf(int fd, const char *fmt, ...)
  743:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
  747:	90                   	nop
           s = "(null)";
- 748:	ba 75 09 00 00       	mov    $0x975,%edx
+ 748:	ba 8d 09 00 00       	mov    $0x98d,%edx
         while(*s != 0){
  74d:	89 5d d4             	mov    %ebx,-0x2c(%ebp)
  750:	b8 28 00 00 00       	mov    $0x28,%eax
@@ -1072,7 +1072,7 @@ free(void *ap)
 
   bp = (Header*)ap - 1;
   for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
- 761:	a1 7c 0c 00 00       	mov    0xc7c,%eax
+ 761:	a1 94 0c 00 00       	mov    0xc94,%eax
 {
  766:	89 e5                	mov    %esp,%ebp
  768:	57                   	push   %edi
@@ -1117,7 +1117,7 @@ free(void *ap)
 }
  7a1:	5b                   	pop    %ebx
   freep = p;
- 7a2:	89 15 7c 0c 00 00    	mov    %edx,0xc7c
+ 7a2:	89 15 94 0c 00 00    	mov    %edx,0xc94
 }
  7a8:	5e                   	pop    %esi
  7a9:	5f                   	pop    %edi
@@ -1149,7 +1149,7 @@ free(void *ap)
     p->s.size += bp->s.size;
  7d9:	03 43 fc             	add    -0x4(%ebx),%eax
   freep = p;
- 7dc:	89 15 7c 0c 00 00    	mov    %edx,0xc7c
+ 7dc:	89 15 94 0c 00 00    	mov    %edx,0xc94
     p->s.size += bp->s.size;
  7e2:	89 42 04             	mov    %eax,0x4(%edx)
     p->s.ptr = bp->s.ptr;
@@ -1182,7 +1182,7 @@ malloc(uint nbytes)
   nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
  7f9:	8b 45 08             	mov    0x8(%ebp),%eax
   if((prevp = freep) == 0){
- 7fc:	8b 3d 7c 0c 00 00    	mov    0xc7c,%edi
+ 7fc:	8b 3d 94 0c 00 00    	mov    0xc94,%edi
   nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
  802:	8d 70 07             	lea    0x7(%eax),%esi
  805:	c1 ee 03             	shr    $0x3,%esi
@@ -1219,7 +1219,7 @@ malloc(uint nbytes)
       return (void*)(p + 1);
     }
     if(p == freep)
- 841:	8b 3d 7c 0c 00 00    	mov    0xc7c,%edi
+ 841:	8b 3d 94 0c 00 00    	mov    0xc94,%edi
  847:	89 c2                	mov    %eax,%edx
  849:	39 d7                	cmp    %edx,%edi
  84b:	75 eb                	jne    838 <malloc+0x48>
@@ -1239,7 +1239,7 @@ malloc(uint nbytes)
  869:	50                   	push   %eax
  86a:	e8 f1 fe ff ff       	call   760 <free>
   return freep;
- 86f:	8b 15 7c 0c 00 00    	mov    0xc7c,%edx
+ 86f:	8b 15 94 0c 00 00    	mov    0xc94,%edx
       if((p = morecore(nunits)) == 0)
  875:	83 c4 10             	add    $0x10,%esp
  878:	85 d2                	test   %edx,%edx
@@ -1271,7 +1271,7 @@ malloc(uint nbytes)
         p->s.size = nunits;
  89c:	89 70 04             	mov    %esi,0x4(%eax)
       freep = prevp;
- 89f:	89 15 7c 0c 00 00    	mov    %edx,0xc7c
+ 89f:	89 15 94 0c 00 00    	mov    %edx,0xc94
 }
  8a5:	8d 65 f4             	lea    -0xc(%ebp),%esp
       return (void*)(p + 1);
@@ -1283,17 +1283,17 @@ malloc(uint nbytes)
  8ae:	5d                   	pop    %ebp
  8af:	c3                   	ret    
     base.s.ptr = freep = prevp = &base;
- 8b0:	c7 05 7c 0c 00 00 80 	movl   $0xc80,0xc7c
+ 8b0:	c7 05 94 0c 00 00 98 	movl   $0xc98,0xc94
  8b7:	0c 00 00 
     base.s.size = 0;
- 8ba:	bf 80 0c 00 00       	mov    $0xc80,%edi
+ 8ba:	bf 98 0c 00 00       	mov    $0xc98,%edi
     base.s.ptr = freep = prevp = &base;
- 8bf:	c7 05 80 0c 00 00 80 	movl   $0xc80,0xc80
+ 8bf:	c7 05 98 0c 00 00 98 	movl   $0xc98,0xc98
  8c6:	0c 00 00 
   for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
  8c9:	89 fa                	mov    %edi,%edx
     base.s.size = 0;
- 8cb:	c7 05 84 0c 00 00 00 	movl   $0x0,0xc84
+ 8cb:	c7 05 9c 0c 00 00 00 	movl   $0x0,0xc9c
  8d2:	00 00 00 
     if(p->s.size >= nunits){
  8d5:	e9 42 ff ff ff       	jmp    81c <malloc+0x2c>

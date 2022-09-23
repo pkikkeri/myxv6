@@ -20,8 +20,8 @@ int main(void) {
 	printf(1, "open text 1\n");
 	open("test_1.txt",  O_RDONLY | O_CREATE);
 	printf(1, "count: %d\n", getcount());
-	printf(1, "open text 1\n");
-        open("test_1.txt",  O_RDONLY | O_CREATE);
+	printf(1, "open text 11\n");
+        open("test_11.txt",  O_RDONLY | O_CREATE);
         printf(1, "count: %d\n", getcount());
 
 	printf(1, "open text 2\n");
