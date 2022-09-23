@@ -282,6 +282,20 @@ create(char *path, short type, short major, short minor)
   return ip;
 }
 
+int counter=1;
+
+int
+sys_getcount(void)
+{
+  return counter;
+}
+
+int sys_trace(void)
+{
+  cprintf("tracing!\n");
+  return 0;  
+}
+
 int
 sys_open(void)
 {
