@@ -282,18 +282,27 @@ create(char *path, short type, short major, short minor)
   return ip;
 }
 
-int counter=1;
+int counter;
+int trace_enabled=0;
+char* trace_path;
 
 int
 sys_getcount(void)
 {
-  return counter;
+	return counter;
 }
 
-int sys_trace(void)
+int
+sys_trace(void)
 {
-  cprintf("tracing!\n");
-  return 0;  
+	char* pathname;
+	if(argstr(0, &pathname) < 0) return -1;
+	// add checks
+	cprintf("tracing %s\n", pathname);
+	counter=0;
+	trace_enabled=1;
+	trace_path=pathname;
+	return 0;  
 }
 
 int
@@ -307,6 +316,11 @@ sys_open(void)
   if(argstr(0, &path) < 0 || argint(1, &omode) < 0)
     return -1;
 
+  // trace
+  if (trace_enabled && strncmp(path, trace_path, 256)==0) {
+	counter++;
+  }
+  
   begin_op();
 
   if(omode & O_CREATE){
